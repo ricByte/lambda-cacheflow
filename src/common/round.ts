@@ -1,1 +1,1 @@
-export const round2 = (n: number): number => (Math.ceil(n *20)/20);
+export const round2 = (n: number): number => (Math.round(n *20)/20);

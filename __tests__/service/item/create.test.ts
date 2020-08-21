@@ -156,7 +156,7 @@ describe('Test create item', () => {
           return create(input)
             .then((item)=> {
               expect(item).toBeDefined();
-              expect(item.salePrice).toEqual(11.85);
+              expect(item.salePrice).toEqual(11.8);
             });
         });
         it('Should apply TAX, When is MEDICAL', () => {
