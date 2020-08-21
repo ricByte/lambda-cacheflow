@@ -20,6 +20,7 @@
     "typescript": "~3.9.7"
   },
   "scripts": {
+    "start": "ts-node src/handler/printReceipt.ts",
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
@@ -33,6 +34,7 @@
     "class-transformer": "^0.3.1",
     "class-transformer-validator": "^0.9.1",
     "class-validator": "^0.12.2",
+    "ts-node": "^8.10.2",
     "tslib": "~2.0.0"
   }
 }
