@@ -13,6 +13,7 @@ const TRANSFORMER_OPTIONS: TransformValidationOptions = {
 
 export interface Input {
   quantity?: number,
+  imported?: boolean,
   name: string,
   type: string,
   netSalePrice: number

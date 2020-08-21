@@ -35,7 +35,8 @@ describe('Test checkout cart', () => {
             type: Types.OTHER,
             netSalePrice: 1,
             quantity: 1,
-            salePrice: 1.1
+            salePrice: 1.1,
+            imported: false
           }
         ],
         cart: Cart = checkout(items);
@@ -51,26 +52,51 @@ describe('Test checkout cart', () => {
   });
 
   describe('calculateTotal behaviour', () => {
-    it('Should has salesTaxes like 0.05 of total, When items', () => {
+    it('Should has salesTaxes like difference between SUM(salePrice)-SUM(netSalePrice), When items', () => {
       const items: Item[] = [
           {
             name: 'name',
             type: Types.OTHER,
-            netSalePrice: 1,
+            netSalePrice: 10,
             quantity: 1,
-            salePrice: 1.1
+            salePrice: 10.50,
+            imported: true
           },
           {
             name: 'name',
             type: Types.OTHER,
-            netSalePrice: 14.99,
+            netSalePrice: 47.50,
             quantity: 1,
-            salePrice: 16.49
+            salePrice: 54.65,
+            imported: true
           }
         ],
         cart: Cart = checkout(items);
 
-        expect(cart.salesTaxes).toEqual(items.reduce((acc, items)=> acc + items.salePrice, 0) * 0.05)
+        expect(cart.salesTaxes).toEqual(items.reduce((acc, item)=> acc + (item.salePrice - item.netSalePrice), 0))
+    });
+    it('Should has total like SUM(salePrice), When items', () => {
+      const items: Item[] = [
+          {
+            name: 'name',
+            type: Types.OTHER,
+            netSalePrice: 10,
+            quantity: 1,
+            salePrice: 10.50,
+            imported: true
+          },
+          {
+            name: 'name',
+            type: Types.OTHER,
+            netSalePrice: 47.50,
+            quantity: 1,
+            salePrice: 54.65,
+            imported: true
+          }
+        ],
+        cart: Cart = checkout(items);
+
+        expect(cart.total).toEqual(items.reduce((acc, item)=> acc + item.salePrice, 0))
     });
   });
 
