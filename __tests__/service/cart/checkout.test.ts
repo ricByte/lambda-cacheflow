@@ -2,6 +2,7 @@ import { checkout } from '../../../src/service/cart/checkout';
 import { Cart } from '../../../src/beans/cart';
 import { Item } from '../../../src/beans/Item';
 import { Types } from '../../../src/service/item/types';
+import { round2 } from '../../../src/common/round';
 
 
 describe('Test checkout cart', () => {
@@ -71,9 +72,10 @@ describe('Test checkout cart', () => {
             imported: true
           }
         ],
-        cart: Cart = checkout(items);
+        cart: Cart = checkout(items),
+        expectedSalesTaxes = round2(items.reduce((acc, item)=> acc + (item.salePrice - item.netSalePrice), 0));
 
-        expect(cart.salesTaxes).toEqual(items.reduce((acc, item)=> acc + (item.salePrice - item.netSalePrice), 0))
+      expect(cart.salesTaxes).toEqual(expectedSalesTaxes);
     });
     it('Should has total like SUM(salePrice), When items', () => {
       const items: Item[] = [
