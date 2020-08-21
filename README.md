@@ -9,6 +9,9 @@ node 12
 yarn start
 ```
 This command will display the receipt.
+
+![print image](print.png "Title")
+
 Under `src/data/input.json` you can modify the input of this application
 
 ### How to run test
