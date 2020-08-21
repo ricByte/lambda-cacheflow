@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Book",
+    "type": "BOOK",
+    "netSalePrice": 12.49
+  },
+  {
+    "name": "Music CD",
+    "type": "OTHER",
+    "netSalePrice": 14.99
+  },
+  {
+    "name": "Chocolate bar",
+    "type": "FOOD",
+    "netSalePrice": 0.85
+  }
+]

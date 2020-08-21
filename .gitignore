@@ -11,6 +11,11 @@ coverage
 
 # Transpiled files
 build/
+build
+
+src/**/**.js
+__tests__/**/**.js
+**.map
 
 # VS Code
 .vscode
