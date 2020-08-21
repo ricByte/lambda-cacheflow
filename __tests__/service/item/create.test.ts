@@ -1,5 +1,6 @@
-import { create, Input, BASIC_SALES_TAX } from '../../../src/service/item/create';
+import { create, Input } from '../../../src/service/item/create';
 import { Types } from '../../../src/service/item/types';
+import { BASIC_SALES_TAX } from '../../../src/beans/Item';
 
 
 describe('Test create item', () => {
