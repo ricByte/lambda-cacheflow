@@ -1,4 +1,4 @@
-# CACHEFLOW PRINTER
+# CACHEFLOW PRINTER [![Build Status](https://travis-ci.org/ricByte/lambda-cacheflow.svg?branch=master)](https://travis-ci.org/ricByte/lambda-cacheflow)
 
 ## HOW TO
 ### Prerequisites
